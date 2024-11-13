@@ -1,90 +1,63 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package DataStructure;
+package DataStructures;
 
-public class MyQueue {
-    private int indeks;
-    private final int[] dizi;
+public class Queue {
+    private int index;
+    private int[] arr;
     
-    public MyQueue(int size){
-    indeks = -1;
-    dizi = new int[size];
+    public Queue(int capacity){
+    index = -1;
+    arr = new int[capacity];
     }
     
-    public void enqueue(int value) throws Exception{
-        /*
-        ekleme işlemi yapar
-        */
-        if (dizi.length <= indeks+1){
-            throw new Exception("Kuyruk dolu");
+    public int enqueue(int value) throws Exception{
+        // Adds an element to the queue.
+        if (arr.length <= get_count()){
+            throw new Exception("The queue capacity is full, cannot perform enqueue operation.");
         }
         else{
-            dizi[++indeks] = value;
+            return arr[++index] = value;
         }
     }
     
-    public int dequeue()throws Exception{
-        if (indeks+1 == 0){
-            throw new Exception("Kuyruk boş");
+    public int dequeue() throws Exception{
+        // Removes an element from the queue.
+        if (get_count() == 0){
+            throw new Exception("The queue is empty, cannot perform dequeue operation.");
         }
         else{
-            int eksilen = dizi[0];
-            for (int i = 0; i< (indeks+1); i++){
-                dizi[i] = dizi[i+1];
+            int removed = arr[0];
+            for (int i = 0; i < get_count(); i++){
+                arr[i] = arr[i+1];
             }
-            indeks = indeks-1;
-            return eksilen;
+            index = index-1;
+            return removed;
         }
     }
     
     public int peek(){
-        return dizi[indeks+1];
+        // Returns the element at the front of the queue.
+        return arr[index + 1];
     }
     
-    public int count(){
-        return indeks + 1;
+    private int get_count(){
+        // Returns the number of elements in the queue.
+        return index + 1;
     }
     
     public static void main(String[] args) {
-        MyQueue q = new MyQueue(10);
+        Queue q = new Queue(10);
         try {
-        q.enqueue(5);
-        } catch(Exception ex) {
-            
-        }
-        System.out.println(q.peek());        
-    }  
-    
-    // klasik kuyruğun önden ekleme ve sondan çıkarma işlemi yapmasını sağlayalım
-    // - - - *- - - - - -
-    public void önden_ekleme(int value)throws Exception{
-        /*
-        önden ekleme işlemi yapar
-        */
-        if (dizi.length <= indeks+1){
-            throw new Exception("Kuyruk dolu");
-        }
-        else{
-            for (int i = indeks + 1; i == 0; i--){
-                dizi[i] = dizi[i-1];
-            }
-            indeks ++ ;
-            dizi[0] = value;
-        }
-    }
-    
-    public int sondan_cikarma()throws Exception{
-        /*
-        sondan çıkarma işlemi yapar
-        */
-        if (indeks+1 == 0){
-            throw new Exception("Kuyruk boş");
-        }
-        else{
-            indeks--;
-            return dizi[indeks+1];
-        }
+            q.enqueue(2);
+            System.out.println(q.peek());
+            q.enqueue(3);
+            System.out.println(q.peek());
+            q.enqueue(5);
+            System.out.println(q.peek());
+            q.enqueue(7);
+            System.out.println(q.peek());
+            q.dequeue();
+            System.out.println(q.peek());
+        } catch(Exception ex) {   
+        }      
     }
 }
