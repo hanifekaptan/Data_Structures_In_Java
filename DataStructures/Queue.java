@@ -53,8 +53,6 @@ public class Queue {
             System.out.println(q.peek());
             q.enqueue(5);
             System.out.println(q.peek());
-            q.enqueue(7);
-            System.out.println(q.peek());
             q.dequeue();
             System.out.println(q.peek());
         } catch(Exception ex) {   
