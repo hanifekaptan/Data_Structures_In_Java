@@ -18,7 +18,7 @@ public class CirqularQueue {
     public void enqueue(int value) throws Exception{
         // Adds an element to the queue
         if (capacity <= get_count()){
-            throw new Exception("The circular queue is full, cannot add.");
+            throw new Exception("The circular queue is full, cannot perform enqueue operation.");
         }
         else{
             rear = (rear + 1) % capacity; // Move rear index circularly
@@ -33,7 +33,7 @@ public class CirqularQueue {
     public int dequeue()throws Exception{
         // Removes an element from the queue
         if (get_count() == 0){
-            throw new Exception("Circular queue is empty, cannot remove.");
+            throw new Exception("Circular queue is empty, cannot perform dequeue operation.");
         }
         else{
             int value = arr[front]; // Get the front value
