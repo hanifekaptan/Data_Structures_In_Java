@@ -4,9 +4,13 @@ public class Queue {
     private int index; // Index of the last added element
     private int[] arr; // Array to store the elements of the queue
     
-    public Queue(int capacity){
-    index = -1; // Initialize index to -1 (indicating the queue is empty)
-    arr = new int[capacity]; // Create an array with the specified capacity
+    public Queue(int capacity) throws Exception {
+        // Constructor to initialize the stack with a specified capacity
+        if (capacity <= 0) {
+            throw new Exception("Capacity must be greater than 0"); // Ensure capacity is positive
+        }
+        index = -1; // Initialize index to -1 (indicating the queue is empty)
+        arr = new int[capacity]; // Create an array with the specified capacity
     }
     
     public int enqueue(int value) throws Exception{
