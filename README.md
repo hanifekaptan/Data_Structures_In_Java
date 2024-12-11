@@ -20,3 +20,9 @@ A singly linked list is a data structure where each node contains a reference to
 ## 5. Doubly Linked List
 
 A doubly linked list is a data structure where each node contains references to both the next and the previous nodes. This structure allows access to elements in both directions.
+
+## 6. Graph
+
+## 7. Binary Search Tree
+
+## 8. Hash
