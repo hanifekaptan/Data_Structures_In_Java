@@ -1,4 +1,4 @@
-# Data Structure
+# Data Structures
 This project contains notes on various data structures implemented in Java. Below are the descriptions of each data structure.
 
 ## 1. Stack
@@ -25,4 +25,6 @@ A doubly linked list is a data structure where each node contains references to 
 
 ## 7. Binary Search Tree
 
-## 8. Hash
+## 8. Binary Tree
+
+## 9. Hash
